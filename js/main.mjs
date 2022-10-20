@@ -3,20 +3,18 @@ import * as bootstrap from "bootstrap";
 var imageCache = [];
 var carouselContentEl, carouselEl, carousel;
 
-window.addEventListener("load", () => {
-    carouselContentEl = document.getElementById("dogCarousel-inner");
-    carouselEl = document.getElementById("dogCarousel");
-    carousel = new bootstrap.Carousel(carouselEl);
+carouselContentEl = document.getElementById("dogCarousel-inner");
+carouselEl = document.getElementById("dogCarousel");
+carousel = new bootstrap.Carousel(carouselEl);
 
-    carouselEl.addEventListener("slide.bs.carousel", () => {
-        addNewImage();
-    });
-
+carouselEl.addEventListener("slide.bs.carousel", () => {
     addNewImage();
-    addNewImage();
-
-    setInterval(showNextImage, 10);
 });
+
+addNewImage();
+addNewImage();
+
+setInterval(showNextImage, 10);
 
 async function showNextImage() {
     carousel.next();
